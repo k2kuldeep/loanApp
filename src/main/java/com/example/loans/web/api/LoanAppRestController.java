@@ -19,11 +19,22 @@ public class LoanAppRestController {
     @Autowired
     private LoanService loanService;
 
+    /**
+     * Get all loans list.
+     *
+     * @return the list
+     */
     @GetMapping
     public List<Loan> getAllLoans(){
         return loanService.getAllLoans();
     }
 
+    /**
+     * Add loan string.
+     *
+     * @param loan the loan
+     * @return the string
+     */
     @PostMapping(value = "/add",consumes = {"application/xml","application/json"})
     public String addLoan(@RequestBody Loan loan){
         String response = "";
@@ -37,6 +48,12 @@ public class LoanAppRestController {
         return response;
     }
 
+    /**
+     * Gets loan by id.
+     *
+     * @param id the id
+     * @return the loan by id
+     */
     @GetMapping("/{id}")
     public List<Loan> getLoanById(@PathVariable("id") String id){
         List<Loan> result;
@@ -50,18 +67,33 @@ public class LoanAppRestController {
         return result;
     }
 
+    /**
+     * Get aggregate by lender list.
+     *
+     * @return the list
+     */
     @GetMapping("/aggregate/lender")
-    private List<LoanAggregated> getAggregateByLender(){
+    public List<LoanAggregated> getAggregateByLender(){
         return loanService.getAggregatedLoanGroupByLenderId();
     }
 
+    /**
+     * Get aggregate by customer list.
+     *
+     * @return the list
+     */
     @GetMapping("/aggregate/customer")
-    private List<LoanAggregated> getAggregateByCustomer(){
+    public List<LoanAggregated> getAggregateByCustomer(){
         return loanService.getAggregatedLoanGroupByCustomerId();
     }
 
+    /**
+     * Get aggregate by interest list.
+     *
+     * @return the list
+     */
     @GetMapping("/aggregate/interest")
-    private List<LoanAggregated> getAggregateByInterest(){
+    public List<LoanAggregated> getAggregateByInterest(){
         return loanService.getAggregatedLoanGroupByInterest();
     }
 }

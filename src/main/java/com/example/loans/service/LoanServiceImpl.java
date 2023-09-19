@@ -87,6 +87,7 @@ public class LoanServiceImpl implements LoanService{
     public void checkLoanDueDateScheduler() {
         LocalDate currentDate = LocalDate.now();
         for (Loan loan: getAllLoans()){
+            //check if loan has crossed its due date
             if (loan.getDueDate().isBefore(currentDate)){
                 logger.info("Alert: loan id ["+loan.getLoanId()+"] crossed its due date.");
             }
