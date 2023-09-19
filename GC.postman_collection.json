@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "7bf56f14-8279-41a2-a560-2fe2d87adaee",
+		"name": "GC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29814965"
+	},
+	"item": [
+		{
+			"name": "loans",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/loans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/loans/add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"loanId\": \"L1\",\r\n        \"customerId\": \"C3\",\r\n        \"lenderId\": \"LEN2\",\r\n        \"amount\": 10000.00,\r\n        \"remainingAmount\": 1000.00,\r\n        \"paymentDate\": \"2023-01-28\",\r\n        \"interestPerDay\": 1.0,\r\n        \"dueDate\": \"2023-01-27\",\r\n        \"penaltyPerDay\": 0.02,\r\n        \"cancel\": false\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/loans/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loans",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "loans/id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/loans/L2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loans",
+						"L2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/aggregate/lender",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/loans/aggregate/lender",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loans",
+						"aggregate",
+						"lender"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/aggregate/lender",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/loans/aggregate/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loans",
+						"aggregate",
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/aggregate/interest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/loans/aggregate/interest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loans",
+						"aggregate",
+						"interest"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
